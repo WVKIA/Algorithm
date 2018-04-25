@@ -1,6 +1,5 @@
-package Arrays;
+package ArraysModel;
 
-import javax.xml.transform.Source;
 import java.util.HashMap;
 import java.util.Map;
 
