@@ -1,10 +1,21 @@
 package ArraysModel;
 
 /**
- * Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0).
- * Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+ 给定 n 个非负整数 a1，a2，...，an，每个数代表坐标中的一个点 (i, ai) 。画 n 条垂直线，
+ 使得垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
 
- Note: You may not slant the container and n is at least 2.
+ 注意：你不能倾斜容器，n 至少是2。
+
+ y轴
+ |
+ |     o
+ |     |   o
+ | o   |   |
+ | |   |   |   o
+ | |   |   |   |
+ -------------------------------x轴-----每个下标和对应的数都是一个点，找到其中的两个点，形成的面积盛水最多，
+                                            注意这里有个陷阱，不是面积最大，而是盛水最多，计算面积大小时盛水最多应该是
+                                            短板的高度 * 长度差值，如果是面积最大应该是 （上底+下底）* 高 / 2；
  */
 public class q011_ContainerWithMostWater {
     /**
