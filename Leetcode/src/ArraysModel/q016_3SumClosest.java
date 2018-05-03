@@ -1,5 +1,7 @@
 package ArraysModel;
 
+import java.util.Arrays;
+
 /**
  * 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
  * <p>
@@ -28,6 +30,44 @@ public class q016_3SumClosest {
                         temp = nums[i] + nums[j] + nums[k];
                     }
                 }
+            }
+        }
+        return temp;
+    }
+
+    /**
+     * 首先进行排序
+     * 首先固定第一个数，循环剩下的，采用两个指针的方式，由前和后两个指针相互推进
+     * @param nums
+     * @param target
+     * @return
+     */
+    public static int threeSumClosest_2(int[] nums, int target) {
+        int temp = 0;
+        int min = Integer.MAX_VALUE;
+        Arrays.sort(nums);
+        for (int i = 0; i < nums.length; i++) {
+            int j = i+1;
+            int k = nums.length-1;
+            while (j < k) {
+                int sum = nums[i] + nums[j] + nums[k];
+                int diff = Math.abs(sum - target);
+                if (diff == 0) {
+                    return sum;
+                }
+
+                //如果差值小于之前值，记录
+                if (diff < min) {
+                    min = diff;
+                    temp = sum;
+                }
+                //如果和小于target，说明可以通过左边进行继续逼近；如果和已经大于target了，通过大值右侧逼近
+                if (sum <= target) {
+                    j++;
+                }else {
+                    k--;
+                }
+
             }
         }
         return temp;
