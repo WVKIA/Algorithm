@@ -45,7 +45,7 @@ import java.util.Arrays;
 public class q027_RemoveElement {
     /**
      * 设置两个指针，j记录不一样的数目，j一定小于等于i，所以可以通过num[j]=num[i]来控制去除等于val的值
-     * 
+     *
      * @param nums
      * @param val
      * @return
