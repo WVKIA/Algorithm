@@ -1,5 +1,7 @@
 package Sort;
 
+import static Sort.SortUtil.printNums;
+
 /**
  * 冒泡排序
  * 通过两层循环，大体通过和相邻元素进行比较，将最大的数移动到最后面，最终排序
@@ -12,6 +14,10 @@ package Sort;
  *  第一趟排序将第一位交换成最小的数
  */
 public class BubbleSort {
+    /**
+     * 其实就是选择排序
+     * @param nums
+     */
     public static void bubbleUpSort(int[] nums) {
         if (nums == null) {
             return;
@@ -52,15 +58,6 @@ public class BubbleSort {
         }
     }
 
-    private static void printNums(int[] nums) {
-        if (nums == null) {
-            return;
-        }
-        for (int num : nums) {
-            System.out.print(num + " == > ");
-        }
-        System.out.println();
-    }
     public static void main(String[] args) {
         int[] nums = {2, 4, 1, 3, 6, 9, 43, 67, 9};
         printNums(nums);
