@@ -62,7 +62,7 @@ public class q008_StringToInteger {
         if (list.isEmpty()) {
             return 0;
         }
-        
+
         return -1;
     }
 
