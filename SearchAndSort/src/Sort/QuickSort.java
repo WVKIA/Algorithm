@@ -10,7 +10,7 @@ package Sort;
  *
  * 注意理解：分治法 + 挖坑填数
  *
- *  
+ *
  */
 public class QuickSort {
     /**
@@ -39,5 +39,12 @@ public class QuickSort {
         }
         nums[left] = value;
         return left;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = { 2, 7, 8, 3, 1, 6, 9, 0, 5, 4, -3};
+        SortUtil.printNums(nums);
+        quicksort(nums,0,nums.length-1);
+        SortUtil.printNums(nums);
     }
 }
