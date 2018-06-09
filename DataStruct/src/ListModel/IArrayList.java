@@ -33,7 +33,17 @@ public class IArrayList<E> implements IList<E> {
 
     @Override
     public Iterator<E> iterator() {
-        return null;
+        return new Iterator<E>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public E next() {
+                return null;
+            }
+        };
     }
 
     @Override
@@ -50,7 +60,8 @@ public class IArrayList<E> implements IList<E> {
         boolean bool = false;
         if (contains(e)) {
             int index = indexOf(e);
-            set(index, null);
+            remove(index);
+            bool = true;
         }
         return bool;
     }
@@ -63,17 +74,27 @@ public class IArrayList<E> implements IList<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        checkIndex(index);
+        return (E) this.data[index];
     }
 
     @Override
     public E set(int index, E e) {
-        return null;
+        checkIndex(index);
+        E da = (E) this.data[index];
+        this.data[index] = e;
+        return da;
     }
 
     @Override
     public E remove(int index) {
-        return null;
+        checkIndex(index);
+        for (int i = index; i < size-1; ) {
+            this.data[i] = this.data[++i];
+        }
+        E value = (E) this.data[size - 1];
+        size--;
+        return value;
     }
 
     @Override
@@ -105,6 +126,12 @@ public class IArrayList<E> implements IList<E> {
     private void checkObject(Object o) {
         if (o == null) {
             throw new NullPointerException("元素为null");
+        }
+    }
+
+    private void checkIndex(int index) {
+        if (index >= size || index < 0) {
+            throw new ArrayIndexOutOfBoundsException();
         }
     }
 
