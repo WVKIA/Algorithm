@@ -12,7 +12,7 @@ public class IArrayList<E> implements IList<E> {
     private int size;       //元素个数
 
     public IArrayList() {
-        this.data = new Object[0];
+        this.data = new Object[1];  //默认初始一个元素的数组
         this.size = 0;
     }
 
@@ -32,16 +32,19 @@ public class IArrayList<E> implements IList<E> {
     }
 
     @Override
-    public Iterator<E> iterator() {
+    public Iterator<E> iterator() { //返回迭代器
         return new Iterator<E>() {
+            private int index=0;
             @Override
             public boolean hasNext() {
-                return false;
+                return index < size;
             }
 
             @Override
             public E next() {
-                return null;
+                E value = (E) data[index];
+                index++;
+                return value;
             }
         };
     }
@@ -49,7 +52,7 @@ public class IArrayList<E> implements IList<E> {
     @Override
     public boolean add(E e) {
         checkObject(e);
-        ensoureCapacity();
+        ensoureCapacity();  //添加前进行扩容检测
         this.data[size++] = e;
         return true;
     }
@@ -87,13 +90,30 @@ public class IArrayList<E> implements IList<E> {
     }
 
     @Override
+    public boolean insert(int index, E e) {
+        checkIndex(index);
+        checkObject(e);
+        ensoureCapacity();  //插入前进行扩容检测
+
+        //将指定位置后的数据向后移动一位
+        for (int i = size-1; i >= index; i--) {
+            this.data[i + 1] = this.data[i];
+        }
+        this.data[index] = e;
+        this.size++;
+
+        return false;
+    }
+
+    @Override
     public E remove(int index) {
         checkIndex(index);
-        for (int i = index; i < size-1; ) {
-            this.data[i] = this.data[++i];
+        E value = (E) this.data[index];
+        //将指定位置后的数据向前移动一位，覆盖index位的数据
+        for (int i = index; i < size;i++ ) {
+            this.data[i] = this.data[i+1];
         }
-        E value = (E) this.data[size - 1];
-        size--;
+        this.size--;
         return value;
     }
 

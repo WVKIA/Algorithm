@@ -53,6 +53,15 @@ public interface IList<E> {
      */
     E set(int index, E e);
 
+
+    /**
+     * 在位置index插入值e
+     * @param index
+     * @param e
+     * @return
+     */
+    boolean insert(int index, E e);
+
     /**
      * 移除下标所在元素
      * @param index
