@@ -7,7 +7,7 @@ import java.util.Iterator;
  * 基于数组实现的list
  * @param <E>
  */
-public class IArrayList<E> implements IList<E> {
+public class IArrayList<E> extends IAbstractList<E> {
     private Object[] data;  //数据存储数组
     private int size;       //元素个数
 
@@ -143,13 +143,7 @@ public class IArrayList<E> implements IList<E> {
         return index;
     }
 
-    private void checkObject(Object o) {
-        if (o == null) {
-            throw new NullPointerException("元素为null");
-        }
-    }
-
-    private void checkIndex(int index) {
+    protected void checkIndex(int index) {
         if (index >= size || index < 0) {
             throw new ArrayIndexOutOfBoundsException();
         }

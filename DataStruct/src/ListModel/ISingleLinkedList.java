@@ -7,7 +7,7 @@ import java.util.Iterator;
  * 带有头节点的单链表
  * @param <E>
  */
-public class ISingleLinkedList<E>  implements IList<E> {
+public class ISingleLinkedList<E>  extends IAbstractList<E> {
 
     private SinglePointNode<E> head;    //头节点
 
@@ -34,9 +34,7 @@ public class ISingleLinkedList<E>  implements IList<E> {
 
     @Override
     public boolean contains(Object o) {
-        if (o == null) {
-            return false;
-        }
+        checkObject(o);
         SinglePointNode<E> first = head.next;   //获取第一个节点
         while (first != null) {
             if (first.data.equals(o)) {
@@ -65,32 +63,78 @@ public class ISingleLinkedList<E>  implements IList<E> {
 
     @Override
     public boolean add(E e) {
-        return false;
+        checkObject(e);
+        SinglePointNode<E> first = head;
+        while (first.next != null) {
+            first = first.next;
+        }
+        first.next = new SinglePointNode<>(e, null);
+        return true;
     }
 
     @Override
     public boolean remove(Object e) {
-        return false;
+        checkObject(e);
+
+        SinglePointNode<E> prePoint = head;
+        SinglePointNode<E> point = head.next;
+        while (point != null) {
+            if (point.data.equals(e)) {
+                prePoint.next = point.next;
+                point.next = null;
+                break;
+            }
+            prePoint = point;
+            point = point.next;
+        }
+        return true;
     }
 
     @Override
+    //删除单链表所有元素，回收机制会自动回收到GC Root不可达的节点
     public void clear() {
-
+        this.head.next = null;
     }
 
     @Override
     public E get(int index) {
+        if (index < 0) {
+            throw new IllegalArgumentException();
+        }
+        SinglePointNode<E> point = head.next;
+
+        for (int i = 0; i < index && point != null; i++) {  //指针移动到index位置
+            point = point.next;
+        }
+        if (point != null) {
+            return point.data;  //指向第index个节点的数据
+        }
         return null;
     }
 
     @Override
     public E set(int index, E e) {
-        return null;
+        checkObject(e);
+        if (index < 0) {
+            throw new IllegalArgumentException();
+        }
+        SinglePointNode<E> point = head.next;
+        for (int i = 0; i < index && point != null; i++) {
+            point = point.next;
+        }
+        E value = null;
+        if (point != null) {    //设置指定位置值并且返回原值
+            value = point.data;
+            point.data = e;
+        }
+        return value;
     }
 
     @Override
     public E remove(int index) {
-        return null;
+        E value = get(index);
+        remove(value);
+        return value;
     }
 
     @Override
