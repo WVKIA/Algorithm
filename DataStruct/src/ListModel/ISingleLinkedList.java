@@ -139,11 +139,23 @@ public class ISingleLinkedList<E>  extends IAbstractList<E> {
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        checkObject(o);
+        SinglePointNode<E> point = head;
+        int index=-1;
+        while (point.next != null ) {
+            index++;
+            if (point.next.data.equals(o)) {
+                break;
+            }
+            point = point.next;
+        }
+        return index;
     }
 
     @Override
     public int lastIndexOf(Object o) {
+        checkObject(o);
+//        SinglePointNode
         return 0;
     }
 
