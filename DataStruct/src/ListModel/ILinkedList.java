@@ -107,7 +107,7 @@ public class ILinkedList<T> extends IAbstractList<T> {
         }
         IDoublePointNode<T> point = head.next;
         for (int i = 0; i < index; i++) {
-            
+
         }
         return null;
     }
