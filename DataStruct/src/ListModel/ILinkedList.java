@@ -102,38 +102,100 @@ public class ILinkedList<T> extends IAbstractList<T> {
 
     @Override
     public T get(int index) {
-        if (index < 0 || index >= size()) {
-            throw new IllegalArgumentException("参数错误");
-        }
+       checkIndex(index);
         IDoublePointNode<T> point = head.next;
         for (int i = 0; i < index; i++) {
-
+            point = point.next;
         }
-        return null;
+        return point.data;
     }
 
     @Override
     public T set(int index, T t) {
-        return null;
+        checkIndex(index);
+        IDoublePointNode<T> point = head.next;
+        for (int i = 0; i < index; i++) {
+            point = point.next;
+        }
+        T val = point.data;
+        point.data = t;
+        return val;
     }
 
     @Override
     public boolean insert(int index, T t) {
-        return false;
+        checkIndex(index);
+        IDoublePointNode<T> point = head.next;
+        for (int i = 0; i < index-1; i++) {
+            point = point.next;
+        }
+        
+        //改变指针指向
+        IDoublePointNode<T> val = new IDoublePointNode<>(t, null, null);
+        val.next = point.next;
+        point.next.pre = val;
+        val.pre = point;
+        point.next = val;
+        return true;
     }
 
     @Override
     public T remove(int index) {
-        return null;
+        checkIndex(index);
+        IDoublePointNode<T> point = head.next;
+        for (int i = 0; i < index; i++) {
+            point = point.next;
+        }
+        //使节点前后两个节点进行连接
+        point.next.pre = point.pre;
+        point.pre.next = point.next;
+        
+        //设置节点pre、next为null
+        return point.data;
     }
 
     @Override
     public int indexOf(Object o) {
-        return 0;
+        int size = size();
+        IDoublePointNode<T> point = head.next;
+        for (int i = 0; i < size; i++) {
+            if (point.data.equals(o)) {
+                return i;
+            }
+            point = point.next;
+        }
+        return -1;
     }
 
     @Override
     public int lastIndexOf(Object o) {
+        IDoublePointNode<T> point = head.next;
+        while (point != null && point.next != null) {   //节点移动到最后
+            point = point.next;
+        }
+        int size = size();
+        for (int i = size; i >=0; i--) {    //倒叙查找
+            if (point.data.equals(o)) {
+                return i;
+            }
+            point = point.pre;
+        }
         return 0;
+    }
+
+    public static void main(String[] args) {
+        IList<String> list = new ILinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(String.valueOf(i));
+        }
+        for (int i = 0; i < 10; i++) {
+            System.out.println(list.get(i));
+        }
+        System.out.println(list.isEmpty());
+
+        System.out.println(list.contains("1"));
+        System.out.println(list.lastIndexOf("9"));
+        System.out.println(list.remove(0));
+
     }
 }
