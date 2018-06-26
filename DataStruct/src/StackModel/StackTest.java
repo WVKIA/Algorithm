@@ -2,7 +2,7 @@ package StackModel;
 
 public class StackTest {
     public static void main(String[] args) {
-        test(new IArrayStack<>());
+        test(new IFixedArrayStack<>());
         System.out.println("===============");
         test(new ILinkedStack<>());
 

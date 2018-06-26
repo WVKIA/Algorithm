@@ -21,7 +21,12 @@ public class IFixedArrayStack<T> implements IStack<T> {
 
     @Override
     public T push(T item) {
-        return null;
+        if (full()) {
+            throw new RuntimeException("栈满");
+        }
+        top++;
+        this.items[top] = item;
+        return item;
     }
 
     /**
@@ -29,21 +34,28 @@ public class IFixedArrayStack<T> implements IStack<T> {
      * @return
      */
     public boolean full() {
-        return false;
+        return top == this.items.length - 1;
     }
 
     @Override
     public T pop() {
-        return null;
+        if (empty()) {
+            throw new RuntimeException("栈空");
+        }
+
+        return (T) this.items[top--];   //弹出顶层元素
     }
 
     @Override
     public T peek() {
-        return null;
+        if (empty()) {
+            throw new RuntimeException("栈空");
+        }
+        return (T) this.items[top]; //获取顶层元素
     }
 
     @Override
     public boolean empty() {
-        return false;
+        return top == -1;   //栈空
     }
 }
