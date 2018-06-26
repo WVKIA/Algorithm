@@ -23,4 +23,10 @@ public interface IQueue<T> {
      * @return
      */
     T peek();
+
+    /**
+     * 是否队列空
+     * @return
+     */
+    boolean empty();
 }
