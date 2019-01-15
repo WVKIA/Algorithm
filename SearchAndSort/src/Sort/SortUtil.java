@@ -1,5 +1,8 @@
 package Sort;
 
+/**
+ * 排序工具类
+ */
 public class SortUtil {
     public static void printNums(int[] nums) {
         if (nums == null) {

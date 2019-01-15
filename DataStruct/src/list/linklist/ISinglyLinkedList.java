@@ -128,7 +128,7 @@ public class ISinglyLinkedList<T> implements IList<T> {
         }
         int i=0;
         ISinglyNode current = head.next;
-        
+
         return 0;
     }
 }
