@@ -1,4 +1,4 @@
-package list.linklist;
+package list;
 
 /**
  * 单链表节点

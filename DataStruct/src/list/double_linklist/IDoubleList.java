@@ -4,7 +4,7 @@ import list.IList;
 
 /**
  * @author wukai
- * @date 2019/1/15
+ * 双链表，包含一个前序指针和后继指针
  */
 public interface IDoubleList<T> extends IList<T> {
 

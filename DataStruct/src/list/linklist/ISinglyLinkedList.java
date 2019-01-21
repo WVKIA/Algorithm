@@ -1,6 +1,7 @@
 package list.linklist;
 
 import list.IList;
+import list.ISinglyNode;
 
 /**
  * @author wukai
@@ -66,6 +67,7 @@ public class ISinglyLinkedList<T> implements IList<T> {
         }
         ISinglyNode record = new ISinglyNode(data, null);
         current.next = record;
+        size++;
     }
 
     @Override
@@ -95,15 +97,15 @@ public class ISinglyLinkedList<T> implements IList<T> {
         ISinglyNode current = head.next;
         ISinglyNode pre = head;
 
-        while (i != 0 && null != current) {
+        while (i > 0 && null != current) {
             i--;
             pre=current;
             current = current.next;
         }
-        pre.next = null;
+        pre.next = current.next;
         T temp = (T) current.data;
+        current.next = null;
         current = null;
-
         return temp;
     }
 
@@ -114,7 +116,7 @@ public class ISinglyLinkedList<T> implements IList<T> {
         }
         ISinglyNode current = head.next;
 
-        while (i != 0 && current != null) {
+        while (i > 0 && current != null) {
             i--;
             current = current.next;
         }
@@ -128,7 +130,12 @@ public class ISinglyLinkedList<T> implements IList<T> {
         }
         int i=0;
         ISinglyNode current = head.next;
-
-        return 0;
+        while (current != null) {
+            if (current.data.equals(data)) {
+                return i;
+            }
+            i++;
+        }
+        return -1;
     }
 }

@@ -1,4 +1,4 @@
-package list.double_linklist;
+package list;
 
 /**
  * @author wukai
