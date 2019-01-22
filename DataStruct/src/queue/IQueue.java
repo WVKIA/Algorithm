@@ -5,6 +5,10 @@ package queue;
  * 队列接口
  */
 public interface IQueue<T> {
+    /**
+     * 是否为空
+     * @return
+     */
     boolean isEmpty();
 
     /**

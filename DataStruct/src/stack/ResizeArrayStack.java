@@ -15,7 +15,7 @@ public class ResizeArrayStack<T> implements IStack<T> {
      */
     private int top = -1;
 
-    private int default_size = 10;
+    private int default_size = 3;
 
 
     public ResizeArrayStack() {
