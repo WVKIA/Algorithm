@@ -18,6 +18,9 @@ public class BinaryTreeTest {
         tree.levelOrder();
         System.out.println("后序遍历");
         tree.postOrder();
+
+        System.out.println("树的高度 " + tree.height());
+        System.out.println("树节点个数 " + tree.count());
     }
 
     /**

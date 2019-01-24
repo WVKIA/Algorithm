@@ -116,30 +116,30 @@ public class BinaryTree<T> implements IBinaryTree<T> {
 
     @Override
     public int count() {
-        return countChild(root);
+        return count(root);
     }
 
     //计算以node为根的子树节点个数
-    private int countChild(BinaryTreeNode<T> node) {
+    private int count(BinaryTreeNode<T> node) {
         if (null == node) {
             return 0;
         }
-        return countChild(node.left) + countChild(node.left) + 1;
+        return count(node.left) + count(node.left) +1;
     }
     @Override
     public int height() {
-        return 0;
+        return height(root);
     }
 
     //计算以node为根的子树高度
-    private int heightChild(BinaryTreeNode<T> node) {
+    private int height(BinaryTreeNode<T> node) {
         if (node == null) {
             return 0;
         }
         //左子树高度
-        int hl = heightChild(node.left);
+        int hl = height(node.left);
         //右子树高度
-        int rl = heightChild(node.right);
+        int rl = height(node.right);
 
         return hl > rl ? hl + 1 : rl + 1;
     }
