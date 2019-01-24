@@ -13,14 +13,13 @@ public class ResizeArrayStack<T> implements IStack<T> {
     /**
      * 栈顶指针
      */
-    private int top = -1;
+    private int top =-1;
 
     private int default_size = 3;
 
 
     public ResizeArrayStack() {
         this.elems = new Object[default_size];
-
     }
 
     @Override

@@ -22,7 +22,8 @@ public class BinarySearch {
              middle=(left+right) / 2;
             if (nums[middle] == val) {
                 return middle;
-            } else if (nums[middle] < val) {
+            }
+            if (nums[middle] < val) {
                 left=middle+1;
             }else {
                 right=middle-1;
