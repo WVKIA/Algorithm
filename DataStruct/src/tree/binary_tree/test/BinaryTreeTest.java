@@ -1,8 +1,8 @@
-package tree.binarytree.test;
+package tree.binary_tree.test;
 
-import tree.binarytree.BinaryTree;
-import tree.binarytree.BinaryTreeNode;
-import tree.binarytree.IBinaryTree;
+import tree.binary_tree.BinaryTree;
+import tree.binary_tree.BinaryTreeNode;
+import tree.binary_tree.IBinaryTree;
 
 /**
  * @author wukai
@@ -21,6 +21,9 @@ public class BinaryTreeTest {
 
         System.out.println("树的高度 " + tree.height());
         System.out.println("树节点个数 " + tree.count());
+
+        BinaryTreeNode<String> find = tree.search("A");
+        System.out.println(find.data);
     }
 
     /**

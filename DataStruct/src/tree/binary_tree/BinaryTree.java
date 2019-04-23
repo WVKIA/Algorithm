@@ -1,4 +1,4 @@
-package tree.binarytree;
+package tree.binary_tree;
 
 /**
  * @author wukai
@@ -124,7 +124,9 @@ public class BinaryTree<T> implements IBinaryTree<T> {
         if (null == node) {
             return 0;
         }
-        return count(node.left) + count(node.left) +1;
+        int left = count(node.left);
+        int right = count(node.right);
+        return left+right +1;
     }
     @Override
     public int height() {

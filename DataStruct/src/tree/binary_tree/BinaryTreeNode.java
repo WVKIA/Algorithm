@@ -1,4 +1,4 @@
-package tree.binarytree;
+package tree.binary_tree;
 
 /**
  * @author wukai

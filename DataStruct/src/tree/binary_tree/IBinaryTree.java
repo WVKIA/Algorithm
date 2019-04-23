@@ -1,4 +1,4 @@
-package tree.binarytree;
+package tree.binary_tree;
 
 import tree.ITree;
 
