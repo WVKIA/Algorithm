@@ -1,4 +1,4 @@
-package StringModel;
+package StringAl;
 
 import java.util.ArrayList;
 import java.util.List;

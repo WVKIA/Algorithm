@@ -1,6 +1,4 @@
-package ArraysModel;
-
-import com.sun.org.apache.regexp.internal.RE;
+package ArraysAl;
 
 import java.util.*;
 

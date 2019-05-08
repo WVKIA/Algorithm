@@ -1,4 +1,4 @@
-package ArraysModel;
+package ArraysAl;
 
 import java.util.HashMap;
 import java.util.Map;

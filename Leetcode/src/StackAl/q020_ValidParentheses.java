@@ -1,9 +1,8 @@
-package StackModel;
+package StackAl;
 
 import javafx.util.Pair;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
