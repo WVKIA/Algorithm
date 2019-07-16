@@ -44,8 +44,8 @@ public class BubbleSort {
         if (nums == null) {
             return;
         }
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = 0; j < nums.length-1; j++) {
+        for (int i = 0; i < nums.length-1; i++) {
+            for (int j = 0; j < nums.length-1-i; j++) {
                 //注意此处和上面一种解法的不一致，这里的里层循环用来将最大值移动到最后，通过交换相邻最大值
                 // 外层循环控制需要循环的次数
                 if (nums[j] > nums[j+1]) {
