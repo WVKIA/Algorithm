@@ -9,7 +9,7 @@ public class StackTest {
         //测试resizeArrayStack数组实现
 
         System.out.println("测试resizeArrayStack数组实现");
-        IStack<String> stack = new ResizeArrayStack<>();
+        IStack<String> stack = new IArrayStack<>();
         test(stack);
 
         System.out.println("========");

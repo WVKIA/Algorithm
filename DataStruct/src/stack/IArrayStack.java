@@ -6,7 +6,7 @@ import java.util.Iterator;
  * @author wukai
  * @date 2019/1/21
  */
-public class ResizeArrayStack<T> implements IStack<T> ,Iterable<T>{
+public class IArrayStack<T> implements IStack<T> ,Iterable<T>{
     /**
      * 存储数据
      */
@@ -20,7 +20,7 @@ public class ResizeArrayStack<T> implements IStack<T> ,Iterable<T>{
     private int default_size = 3;
 
 
-    public ResizeArrayStack() {
+    public IArrayStack() {
         this.elems = new Object[default_size];
     }
 
@@ -87,12 +87,17 @@ public class ResizeArrayStack<T> implements IStack<T> ,Iterable<T>{
         public T next() {
             return (T) elems[i--];
         }
+
+        @Override
+        public void remove() {
+
+        }
     }
 
 
     //测试用例
     public static void main(String[] args) {
-        ResizeArrayStack<String> stack = new ResizeArrayStack<>();
+        IArrayStack<String> stack = new IArrayStack<>();
         for (int i = 0; i < 10; i++) {
             stack.push(i + "");
         }

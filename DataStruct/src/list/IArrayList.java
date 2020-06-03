@@ -5,14 +5,14 @@ package list;
  * 由动态数组实现的表
  *
  */
-public class ResizeArrayList<T> implements IList<T>{
+public class IArrayList<T> implements IList<T>{
 
     //存储数据的数组
     private Object [] datas;
     //数组中元素的个数
     private int size;
 
-    public ResizeArrayList() {
+    public IArrayList() {
         //默认个数16
         this.datas = new Object[4];
         this.size = 0;

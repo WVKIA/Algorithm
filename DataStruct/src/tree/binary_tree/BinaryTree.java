@@ -45,10 +45,14 @@ public class BinaryTree<T> implements IBinaryTree<T> {
             return node;
         }
 
+        //递归遍历左子树
         BinaryTreeNode<T> find = searchNode(node.left, data);
+        //如果找到就返回
         if (null != find) {
             return find;
         }
+
+        //递归遍历右子树
         find = searchNode(node.right, data);
         return find;
 
@@ -63,13 +67,18 @@ public class BinaryTree<T> implements IBinaryTree<T> {
         if (pRoot == null || node == null) {
             return null;
         }
+        //如果pRoot的左/右子树节点是node，说明pRoot是node的父节点
         if (pRoot.left == node || pRoot.right == node) {
             return pRoot;
         }
+
+        //否则递归左子树
         BinaryTreeNode<T> find = getParent(pRoot.left, node);
         if (null != find) {
             return find;
         }
+
+        //否则递归右子树
         find = getParent(pRoot.right, node);
         return find;
     }

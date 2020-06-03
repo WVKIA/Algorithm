@@ -26,6 +26,7 @@ import list.ISinglyNode;
  *
  *  three.next-> two.next -> one
  *
+ *  相当于每次插入到第一个节点，删除也就是删除第一个节点
  *
  * 我们这次采用第二种方式
  */

@@ -26,6 +26,7 @@ public class BubbleSort {
             //固定第一位
             int temp=i;
             for (int j = i+1; j < nums.length; j++) {
+                //如果j位置数据小于i位置数据，将i和j交换位置
                 if (nums[j] < nums[temp]) {
                     int k = nums[j];
                     nums[j] = nums[i];
@@ -44,10 +45,14 @@ public class BubbleSort {
         if (nums == null) {
             return;
         }
+        //第一层只是循环次数的
         for (int i = 0; i < nums.length-1; i++) {
+
+            //第二层才是真正工作，每次将最大的放后面
             for (int j = 0; j < nums.length-1-i; j++) {
                 //注意此处和上面一种解法的不一致，这里的里层循环用来将最大值移动到最后，通过交换相邻最大值
                 // 外层循环控制需要循环的次数
+
                 if (nums[j] > nums[j+1]) {
                     int k = nums[j];
                     nums[j] = nums[j+1];

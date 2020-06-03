@@ -7,13 +7,14 @@ import tree.binary_tree.BinaryTreeNode;
  * 二叉查找树
  * 数据必须实现compare接口
  */
-public class BinarySearchTree<T extends Comparable>  {
+public class BinarySearchTree<T extends Comparable>{
     //根节点指向
     private BinaryTreeNode<T> root;
 
     public BinarySearchTree() {
         this.root = null;
     }
+
 
     public void insert(T data) {
 

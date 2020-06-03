@@ -21,6 +21,7 @@ import list.ISinglyNode;
  *
  * head.next -> two
  *
+ * 对应的入队和出队也就是对应着单链表的插入到链表尾部和删除第一个节点
  */
 public class ILinkedQueue<T> implements IQueue<T> {
     /**

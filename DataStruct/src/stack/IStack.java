@@ -1,7 +1,5 @@
 package stack;
 
-import java.util.Stack;
-
 /**
  * @author wukai
  * 栈接口

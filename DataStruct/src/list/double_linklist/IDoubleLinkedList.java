@@ -11,7 +11,7 @@ public class IDoubleLinkedList<T> implements IDoubleList<T> {
     /**
      * 使用一个头指针
      */
-    private IDoubleNode<T> head;
+    private IDoubleNode<T> head;//只是一个哨兵节点，并没有实际存储数据
 
 
     public IDoubleLinkedList() {
@@ -53,11 +53,11 @@ public class IDoubleLinkedList<T> implements IDoubleList<T> {
         while (null != current.next) {
             current = current.next;
         }
-        IDoubleNode<T> value = new IDoubleNode<>(data, null, null);
+        IDoubleNode<T> node = new IDoubleNode<>(data, null, null);
 
         //设置指针指向
-        current.next = value;
-        value.pre = current;
+        current.next = node;
+        node.pre = current;
     }
 
     @Override
@@ -84,8 +84,8 @@ public class IDoubleLinkedList<T> implements IDoubleList<T> {
 
         //如果移除的节点是最后一个，特殊处理
         if (current.next == null) {
-            current.pre.next = null;
-            current.pre = null;
+            current.pre.next = null;//最后一个节点前置节点的next指向null
+            current.pre = null;//最后一个节点pre指向null
         }else {
             current.pre.next = current.next;
             current.next.pre = current.pre;

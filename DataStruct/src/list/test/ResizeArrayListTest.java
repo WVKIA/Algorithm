@@ -1,7 +1,7 @@
 package list.test;
 
 import list.IList;
-import list.ResizeArrayList;
+import list.IArrayList;
 
 /**
  * @author wukai
@@ -9,7 +9,7 @@ import list.ResizeArrayList;
  */
 public class ResizeArrayListTest {
     public static void main(String[] args) {
-        IList<String> iList = new ResizeArrayList<>();
+        IList<String> iList = new IArrayList<>();
         for (int i = 0; i < 5; i++) {
             iList.add(i + "");
         }
